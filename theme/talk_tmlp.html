@@ -1,0 +1,26 @@
+{{#array}}
+	<article class="talk clearfix" id="talk_{{id}}">
+		<div class="author_box clearfix" id="{{author}}">
+			<img src="{{author_avatar}}" />
+			<h5>{{author}}</h5>
+		</div>
+		<div class="talk_wrap clearfix">
+			<div class="content clearfix">
+				<header class="talk_header clearfix" id="talk_{{id}}">
+					<h1>{{title}}</h1>
+					<span class="talk_header_info" id="talk_{{id}}">
+						<strong class="talk_tag">{{tag}}</strong> ◎ <p>{{length}} 字符</p> ◎ <p>{{viewed}} viewed</p>
+					</span>
+					<span class="talk_header_comments" id="talk_{{id}}">
+						<strong>{{comments}}</strong>
+					</span>
+				</header>
+				<p>
+					{{content}}
+				</p>
+				<footer class="comments clearfix" id="talk_{{id}}">
+				</footer>
+			</div>
+		</div>
+	</article>
+{{/array}}
