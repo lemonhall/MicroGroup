@@ -2,7 +2,7 @@
 var http = require('http'),
 	fs = require('fs'),
 	url = require('url'),
-	qs = require('qs'),
+	qs = require('querystring'),
 	fu = require('./fu'),
 	web = require('./inclube/web'),
 	MongoDB = require('mongodb'),
@@ -33,11 +33,15 @@ var url = {
 								web.send(res, JSON.stringify(cur));
 							},
 			"^gettalks" : function (req, res, data) {
-								var query = {
-											"tag" : data.tag
-											},
-									cur = talksColl.find(query),
-									result = [];
+								if (data.tag !== "*") {
+									var query = {
+												"tag" : data.tag
+												},
+										cur = talksColl.find(query);
+								} else {
+									var cur = talksColl.find();
+								}
+								var result = [];
 								for (var i = data.scound; i < (data.scound + data.cound); i++) {
 									result.push(cur[i]);
 								}
